@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+	<listeners>
+		<listener class-name="com.VTiger.crm.ListenerUtility.ListImpClass"/>
+	</listeners>
+  <test name="Test1" thread-count="2" parallel="tests">
+    <classes>
+      <class name="com.VTiger.crm.orgtest.OrganisationTest"/>
+      </classes>
+  </test> <!-- Test -->
+  
+  <test name="Test2" thread-count="2" parallel="tests">
+    <classes>
+		 <class name="com.VTiger.crm.contacttest.ContactTest"/>
+    </classes>
+  </test> <!-- Test -->
+  
+</suite> <!-- Suite -->
