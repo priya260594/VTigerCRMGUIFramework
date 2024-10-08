@@ -51,7 +51,7 @@ public class BaseClass {
 	) throws IOException {
 		// String BROWSER=fLib.getDataFromPropertyFile("browser");
 		// String BROWSER=browser;
-		String BROWSER = System.getProperty("browser", fLib.getDataFromPropertyFile("browser"));
+		String BROWSER = System.getProperty(/**"browser",**/ fLib.getDataFromPropertyFile("browser"));
 		System.out.println(BROWSER);
 		if (BROWSER.equals("chrome")) {
 			//ChromeOptions cOpt = new ChromeOptions();
@@ -89,9 +89,9 @@ public class BaseClass {
 		// String USERNAME=fLib.getDataFromPropertyFile("username");
 		// String PASSWORD=fLib.getDataFromPropertyFile("password");
 
-		String URL = System.getProperty("url", fLib.getDataFromPropertyFile("url"));
-		String USERNAME = System.getProperty("username", fLib.getDataFromPropertyFile("username"));
-		String PASSWORD = System.getProperty("password", fLib.getDataFromPropertyFile("password"));
+		String URL = System.getProperty(/**"url",**/ fLib.getDataFromPropertyFile("url"));
+		String USERNAME = System.getProperty(/**"username",**/ fLib.getDataFromPropertyFile("username"));
+		String PASSWORD = System.getProperty(/**"password",**/ fLib.getDataFromPropertyFile("password"));
 
 		driver.get(URL);
 		wLib.WaitForPageToLoad(driver);
