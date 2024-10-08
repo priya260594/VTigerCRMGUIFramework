@@ -12,7 +12,7 @@
 	<test thread-count="5" name="Test">
 		<classes>
 			<class name="com.VTiger.crm.contacttest.ContactTest" />
-			<class name="com.VTiger.crm.orgtest.OrganisationTest" />
+			<class name="com.VTiger.crm.orgTest.OrganisationTest" />
 		</classes>
 	</test> <!--
 	Test -->

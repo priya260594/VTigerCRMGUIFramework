@@ -6,7 +6,7 @@
 	</listeners>
   <test name="Test">
     <classes>
-      <class name="com.VTiger.crm.orgtest.OrganisationTest">
+      <class name="com.VTiger.crm.orgTest.OrganisationTest">
 		<methods>
 			<include  name="createOrgTest"/>
 		</methods>
