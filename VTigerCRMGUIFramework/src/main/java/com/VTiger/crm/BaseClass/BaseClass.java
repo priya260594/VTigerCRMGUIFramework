@@ -54,26 +54,26 @@ public class BaseClass {
 		String BROWSER = System.getProperty("browser", fLib.getDataFromPropertyFile("browser"));
 		System.out.println(BROWSER);
 		if (BROWSER.equals("chrome")) {
-			ChromeOptions cOpt = new ChromeOptions();
+			//ChromeOptions cOpt = new ChromeOptions();
 			// cOpt.addArguments("--incognito");
 
-			cOpt.addArguments("--headless");
+			//cOpt.addArguments("--headless");
 			// cOpt.addArguments("--disable-gpu");
-			driver = new ChromeDriver(cOpt);
+			driver = new ChromeDriver();
 		} else if (BROWSER.equals("firefox")) {
 			FirefoxOptions fOpt = new FirefoxOptions();
 			// fOpt.addArguments("--private");
-			fOpt.addArguments("--headless");
+			//fOpt.addArguments("--headless");
 
-			driver = new FirefoxDriver(fOpt);
+			driver = new FirefoxDriver();
 		} else if (BROWSER.equals("edge")) {
-			EdgeOptions eOpt = new EdgeOptions();
-			eOpt.addArguments("--headless");
+			//EdgeOptions eOpt = new EdgeOptions();
+			//eOpt.addArguments("--headless");
 			//eOpt.addArguments("--inprivate");
-			driver = new EdgeDriver(eOpt);
+			driver = new EdgeDriver();
 		} else {
-			ChromeOptions cOpt = new ChromeOptions();
-			cOpt.addArguments("--incognito");
+			//ChromeOptions cOpt = new ChromeOptions();
+			//cOpt.addArguments("--incognito");
 			driver = new ChromeDriver();
 		}
 		sdriver = driver; // for listener class-step-2
