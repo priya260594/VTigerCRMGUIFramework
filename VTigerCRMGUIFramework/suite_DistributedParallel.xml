@@ -6,7 +6,7 @@
 	</listeners>
   <test name="Test1" thread-count="2" parallel="tests">
     <classes>
-      <class name="com.VTiger.crm.orgtest.OrganisationTest"/>
+      <class name="com.VTiger.crm.orgTest.OrganisationTest"/>
       </classes>
   </test> <!-- Test -->
   
