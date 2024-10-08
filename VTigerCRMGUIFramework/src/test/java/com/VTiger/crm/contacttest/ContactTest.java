@@ -2,6 +2,7 @@ package com.VTiger.crm.contacttest;
 
 import java.io.IOException;
 
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.VTiger.crm.BaseClass.BaseClass;
@@ -12,7 +13,7 @@ import com.VTiger.crm.objectRepositoryutility.ContactsPage.CreateNewContactPage;
 import com.VTiger.crm.objectRepositoryutility.OrganisationPage.CreateNewOrganisationPage;
 import com.VTiger.crm.objectRepositoryutility.OrganisationPage.OrganisationInfoPage;
 import com.VTiger.crm.objectRepositoryutility.OrganisationPage.OrganisationPage;
-
+@Listeners (com.VTiger.crm.ListenerUtility.ListImpClass.class)
 public class ContactTest extends BaseClass {
 
 	@Test(groups="SmokeTest")

@@ -4,19 +4,22 @@
   <listeners>
     <listener class-name="com.VTiger.crm.ListenerUtility.ListImpClass"/>
   </listeners>
-  <test thread-count="5" name="Test(failed)">
+  <test thread-count="5" parallel="tests" name="Test1(failed)">
     <classes>
       <class name="com.VTiger.crm.orgtest.OrganisationTest">
         <methods>
           <include name="configAM"/>
           <include name="configBM"/>
           <include name="createOrgTest"/>
-          <include name="configAS"/>
           <include name="configAC"/>
-          <include name="configBS"/>
+          <include name="configAS"/>
+          <include name="DeleteOrgTest"/>
           <include name="configBC"/>
+          <include name="configBS"/>
+          <include name="createOrgWithIndusTest"/>
+          <include name="createOrgPhoneNoTest"/>
         </methods>
       </class> <!-- com.VTiger.crm.orgtest.OrganisationTest -->
     </classes>
-  </test> <!-- Test(failed) -->
+  </test> <!-- Test1(failed) -->
 </suite> <!-- Failed suite [Suite] -->

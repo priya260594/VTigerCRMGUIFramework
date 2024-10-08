@@ -3,17 +3,17 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.VTiger.crm.orgtest.OrganisationTest">
+      <class name="com.VTiger.crm.contacttest.ContactTest">
         <methods>
           <include name="configAM"/>
           <include name="configBM"/>
-          <include name="configAS"/>
           <include name="configAC"/>
-          <include name="createOrgWithIndusTest"/>
-          <include name="configBS"/>
+          <include name="configAS"/>
+          <include name="createContTest"/>
           <include name="configBC"/>
+          <include name="configBS"/>
         </methods>
-      </class> <!-- com.VTiger.crm.orgtest.OrganisationTest -->
+      </class> <!-- com.VTiger.crm.contacttest.ContactTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

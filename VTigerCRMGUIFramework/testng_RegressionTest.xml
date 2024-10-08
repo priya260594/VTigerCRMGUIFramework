@@ -3,14 +3,18 @@
 <suite name="Suite">
 	<groups>
 		<run>
-			<include name="RegressionTest"/>
-			
+			<include name="RegressionTest" />
 		</run>
 	</groups>
-  <test thread-count="5" name="Test">
-    <classes>
-      <class name="com.VTiger.crm.contacttest.ContactTest"/>
-      <class name="com.VTiger.crm.orgtest.OrganisationTest"/>
-    </classes>
-  </test> <!-- Test -->
-</suite> <!-- Suite -->
+	<listeners>
+		<listener class-name="com.VTiger.crm.ListenerUtility.ListImpClass" />
+	</listeners>
+	<test thread-count="5" name="Test">
+		<classes>
+			<class name="com.VTiger.crm.contacttest.ContactTest" />
+			<class name="com.VTiger.crm.orgtest.OrganisationTest" />
+		</classes>
+	</test> <!--
+	Test -->
+</suite> <!--
+Suite -->
