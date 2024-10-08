@@ -3,6 +3,7 @@ package com.VTiger.crm.PurchaseOrderTest;
 import java.io.IOException;
 
 import org.apache.poi.EncryptedDocumentException;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.VTiger.crm.BaseClass.BaseClass;
@@ -22,7 +23,8 @@ import com.VTiger.crm.objectRepositoryutility.servicePage.CreateNewServicePage;
 import com.VTiger.crm.objectRepositoryutility.servicePage.ServiceInfoPage;
 import com.VTiger.crm.objectRepositoryutility.servicePage.ServicePage;
 
-public class PurchaseOrderTest extends BaseClass{
+@Listeners(com.VTiger.crm.ListenerUtility.ListImpClass.class)
+public class PurchaseOrderTest extends BaseClass {
 	@Test
 	public void createPurchaseTest() throws EncryptedDocumentException, IOException, InterruptedException {
 		String vendorNam = eLib.getDataFromExcelFile("Purchase_Order", 1, 2) + jLib.getRandomNumber();
@@ -49,7 +51,6 @@ public class PurchaseOrderTest extends BaseClass{
 
 		CreateNewProductPage newProduct = new CreateNewProductPage(driver);
 		newProduct.createProdNameWithQty(prodName, quantity);
-		
 
 		ProductInfoPage pip = new ProductInfoPage(driver);
 		wLib.waitForElementVisible(driver, pip.getHeaderProductName());
@@ -73,6 +74,7 @@ public class PurchaseOrderTest extends BaseClass{
 		poip.verifyQuantity(quantity);
 
 	}
+
 	@Test
 	public void createPurchaseWithContTest() throws EncryptedDocumentException, IOException, InterruptedException {
 		String vendorNam = eLib.getDataFromExcelFile("Purchase_Order", 4, 2) + jLib.getRandomNumber();
@@ -93,15 +95,15 @@ public class PurchaseOrderTest extends BaseClass{
 		wLib.waitForElementVisible(driver, vip.getHeaderVendorName());
 		System.out.println("=================Vendor created=====================");
 
-        hp.getContactsTab().click();
-		
-		ContactPage cp=new ContactPage(driver);
+		hp.getContactsTab().click();
+
+		ContactPage cp = new ContactPage(driver);
 		cp.getCreateNewContact().click();
-		
-		CreateNewContactPage newCont=new CreateNewContactPage(driver);
+
+		CreateNewContactPage newCont = new CreateNewContactPage(driver);
 		newCont.CreateContact(lastName);
-		
-		ContactInfoPage cIP=new ContactInfoPage(driver);
+
+		ContactInfoPage cIP = new ContactInfoPage(driver);
 		wLib.waitForElementVisible(driver, cIP.getheaderTxtLastName());
 		System.out.println("=================Contacts created=====================");
 
@@ -112,7 +114,6 @@ public class PurchaseOrderTest extends BaseClass{
 
 		CreateNewProductPage newProduct = new CreateNewProductPage(driver);
 		newProduct.createProdNameWithQty(prodName, quantity);
-		
 
 		ProductInfoPage pip = new ProductInfoPage(driver);
 		wLib.waitForElementVisible(driver, pip.getHeaderProductName());
@@ -124,7 +125,7 @@ public class PurchaseOrderTest extends BaseClass{
 		pup.getnewPurchaseOrder().click();
 
 		CreateNewPurchasePage cpp = new CreateNewPurchasePage(driver);
-		cpp.createPurchaseOrderWithCont(driver, subName, vendorNam, BillAddress, prodName, quantity,lastName);
+		cpp.createPurchaseOrderWithCont(driver, subName, vendorNam, BillAddress, prodName, quantity, lastName);
 
 		PurchaseOrderInfoPage poip = new PurchaseOrderInfoPage(driver);
 		poip.verifydisplayedSubName(subName);
@@ -135,7 +136,8 @@ public class PurchaseOrderTest extends BaseClass{
 		poip.verifyDisplayedShippingAddress(BillAddress);
 		poip.verifyProductName(driver, prodName);
 		poip.verifyQuantity(quantity);
-}
+	}
+
 	@Test
 	public void createPurchaseWithServiceTest() throws EncryptedDocumentException, IOException, InterruptedException {
 		String vendorNam = eLib.getDataFromExcelFile("Purchase_Order", 7, 2) + jLib.getRandomNumber();
@@ -144,22 +146,21 @@ public class PurchaseOrderTest extends BaseClass{
 		String quantity = eLib.getDataFromExcelFile("Purchase_Order", 7, 5);
 		String subName = eLib.getDataFromExcelFile("Purchase_Order", 7, 1);
 		String BillAddress = eLib.getDataFromExcelFile("Purchase_Order", 7, 6);
-		String serviceName=eLib.getDataFromExcelFile("Purchase_Order", 7, 7)+ jLib.getRandomNumber();
-		String serviceCategory=eLib.getDataFromExcelFile("Purchase_Order", 7, 8);
-		
-		
+		String serviceName = eLib.getDataFromExcelFile("Purchase_Order", 7, 7) + jLib.getRandomNumber();
+		String serviceCategory = eLib.getDataFromExcelFile("Purchase_Order", 7, 8);
+
 		hp.clickServiceLnk(driver);
-		
-		ServicePage pp=new ServicePage(driver);
+
+		ServicePage pp = new ServicePage(driver);
 		pp.getnewServicePage().click();
-		
-		CreateNewServicePage csp=new CreateNewServicePage(driver);
+
+		CreateNewServicePage csp = new CreateNewServicePage(driver);
 		csp.servicePage(driver, serviceName, serviceCategory);
-		
-		ServiceInfoPage sip=new ServiceInfoPage(driver);
+
+		ServiceInfoPage sip = new ServiceInfoPage(driver);
 		wLib.waitForElementVisible(driver, sip.getHeaderServiceName());
 		System.out.println("=================Service created=====================");
-		
+
 		hp.clickVendor(driver);
 		VendorPage vp = new VendorPage(driver);
 		vp.getnewVendorBtn().click();
@@ -171,15 +172,15 @@ public class PurchaseOrderTest extends BaseClass{
 		wLib.waitForElementVisible(driver, vip.getHeaderVendorName());
 		System.out.println("=================Vendor created=====================");
 
-        hp.getContactsTab().click();
-		
-		ContactPage cp=new ContactPage(driver);
+		hp.getContactsTab().click();
+
+		ContactPage cp = new ContactPage(driver);
 		cp.getCreateNewContact().click();
-		
-		CreateNewContactPage newCont=new CreateNewContactPage(driver);
+
+		CreateNewContactPage newCont = new CreateNewContactPage(driver);
 		newCont.CreateContact(lastName);
-		
-		ContactInfoPage cIP=new ContactInfoPage(driver);
+
+		ContactInfoPage cIP = new ContactInfoPage(driver);
 		wLib.waitForElementVisible(driver, cIP.getheaderTxtLastName());
 		System.out.println("=================Contacts created=====================");
 
@@ -190,7 +191,6 @@ public class PurchaseOrderTest extends BaseClass{
 
 		CreateNewProductPage newProduct = new CreateNewProductPage(driver);
 		newProduct.createProdNameWithQty(prodName, quantity);
-		
 
 		ProductInfoPage pip = new ProductInfoPage(driver);
 		wLib.waitForElementVisible(driver, pip.getHeaderProductName());
@@ -202,8 +202,8 @@ public class PurchaseOrderTest extends BaseClass{
 		pup.getnewPurchaseOrder().click();
 
 		CreateNewPurchasePage cpp = new CreateNewPurchasePage(driver);
-		cpp.createPOWithContAndService(driver, subName, vendorNam, BillAddress, prodName, quantity, lastName, serviceName);
-	
+		cpp.createPOWithContAndService(driver, subName, vendorNam, BillAddress, prodName, quantity, lastName,
+				serviceName);
 
 		PurchaseOrderInfoPage poip = new PurchaseOrderInfoPage(driver);
 		poip.verifydisplayedSubName(subName);
@@ -215,7 +215,6 @@ public class PurchaseOrderTest extends BaseClass{
 		poip.verifyProductName(driver, prodName);
 		poip.verifyQuantity(quantity);
 		poip.verifyServiceName(serviceName);
-}
-
+	}
 
 }

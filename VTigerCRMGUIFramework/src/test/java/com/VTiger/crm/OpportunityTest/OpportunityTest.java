@@ -3,6 +3,7 @@ package com.VTiger.crm.OpportunityTest;
 import java.io.IOException;
 
 import org.apache.poi.EncryptedDocumentException;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.VTiger.crm.BaseClass.BaseClass;
@@ -17,47 +18,48 @@ import com.VTiger.crm.objectRepositoryutility.OrganisationPage.CreateNewOrganisa
 import com.VTiger.crm.objectRepositoryutility.OrganisationPage.OrganisationInfoPage;
 import com.VTiger.crm.objectRepositoryutility.OrganisationPage.OrganisationPage;
 
+@Listeners(com.VTiger.crm.ListenerUtility.ListImpClass.class)
 public class OpportunityTest extends BaseClass {
-	@Test(groups="SmokeTest")
+	@Test(groups = "SmokeTest")
 	public void createOpWithOrgTest() throws IOException, InterruptedException {
-	
-		String orgName=eLib.getDataFromExcelFile("Organization", 1, 2)+jLib.getRandomNumber();
-		String OPNAME=eLib.getDataFromExcelFile("Opportunity", 1, 2);
-		String ASSIGNEDTO=eLib.getDataFromExcelFile("Opportunity", 1, 3);
-		String AfterAMonthDate=jLib.getRequiredYYYYMMdd(30);
-		
-		HomePage hp=new HomePage(driver);
+
+		String orgName = eLib.getDataFromExcelFile("Organization", 1, 2) + jLib.getRandomNumber();
+		String OPNAME = eLib.getDataFromExcelFile("Opportunity", 1, 2);
+		String ASSIGNEDTO = eLib.getDataFromExcelFile("Opportunity", 1, 3);
+		String AfterAMonthDate = jLib.getRequiredYYYYMMdd(30);
+
+		HomePage hp = new HomePage(driver);
 		hp.getOrganizationTab().click();
-		
-		OrganisationPage op=new OrganisationPage(driver);
+
+		OrganisationPage op = new OrganisationPage(driver);
 		op.creatingNewOrganisation();
-		
-		CreateNewOrganisationPage newOrg=new CreateNewOrganisationPage(driver);
+
+		CreateNewOrganisationPage newOrg = new CreateNewOrganisationPage(driver);
 		newOrg.createOrgPage(orgName);
-		
-		OrganisationInfoPage oip=new OrganisationInfoPage(driver);
+
+		OrganisationInfoPage oip = new OrganisationInfoPage(driver);
 		wLib.waitForElementVisible(driver, oip.getHeaderOrgName());
-		
+
 		hp.getOpportunitiesLnk().click();
-		
-		OpportunityPage op1=new OpportunityPage(driver);
+
+		OpportunityPage op1 = new OpportunityPage(driver);
 		op1.getcreateOpportunity().click();
-		
-		
-		CreateNewOpportunityPage newOpportunity=new CreateNewOpportunityPage(driver);
+
+		CreateNewOpportunityPage newOpportunity = new CreateNewOpportunityPage(driver);
 		newOpportunity.createOppor(driver, OPNAME, orgName, ASSIGNEDTO, AfterAMonthDate);
-		
+
 		Thread.sleep(10000);
-		
-		OpportunityInfoPage oIP=new OpportunityInfoPage(driver);
+
+		OpportunityInfoPage oIP = new OpportunityInfoPage(driver);
 		oIP.verifyDisplayedOPNameTxt(OPNAME);
 		oIP.verifyHeaderOpNameTxt(OPNAME);
 		oIP.verifyRelatedToOrgTxt(orgName);
 		oIP.verifyAssignedToTxt(ASSIGNEDTO);
 		oIP.verifyCloseDateTxt(AfterAMonthDate);
 
-			}
-	@Test(groups="RegressionTest")
+	}
+
+	@Test(groups = "RegressionTest")
 	public void createOPWithContactTest() throws EncryptedDocumentException, IOException, InterruptedException {
 		String ContName = eLib.getDataFromExcelFile("Opportunity", 4, 5) + jLib.getRandomNumber();
 		String OPNAME = eLib.getDataFromExcelFile("Opportunity", 4, 2);

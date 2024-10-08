@@ -13,10 +13,11 @@ import com.VTiger.crm.objectRepositoryutility.ContactsPage.CreateNewContactPage;
 import com.VTiger.crm.objectRepositoryutility.OrganisationPage.CreateNewOrganisationPage;
 import com.VTiger.crm.objectRepositoryutility.OrganisationPage.OrganisationInfoPage;
 import com.VTiger.crm.objectRepositoryutility.OrganisationPage.OrganisationPage;
-@Listeners (com.VTiger.crm.ListenerUtility.ListImpClass.class)
+
+@Listeners(com.VTiger.crm.ListenerUtility.ListImpClass.class)
 public class ContactTest extends BaseClass {
 
-	@Test(groups="SmokeTest")
+	@Test(groups = "SmokeTest")
 	public void createContTest() throws IOException, InterruptedException {
 
 		String lastName = eLib.getDataFromExcelFile("Contacts", 1, 2) + jLib.getRandomNumber();
@@ -35,7 +36,7 @@ public class ContactTest extends BaseClass {
 
 	}
 
-	@Test(groups="RegressionTest")
+	@Test(groups = "RegressionTest")
 	public void createContWithOrgTest() throws IOException, InterruptedException {
 
 		String orgName = eLib.getDataFromExcelFile("Organization", 10, 2) + jLib.getRandomNumber();
@@ -66,7 +67,7 @@ public class ContactTest extends BaseClass {
 		cip.verifyHeaderLastName(lastName);
 	}
 
-	@Test(groups="RegressionTest")
+	@Test(groups = "RegressionTest")
 	public void createContWithSupportDateTest() throws IOException, InterruptedException {
 
 		String actualDate = jLib.getSystemDate();
